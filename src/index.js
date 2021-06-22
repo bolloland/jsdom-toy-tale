@@ -33,7 +33,7 @@ const renderToys = (toys) => {
     button.innerHTML = "Like <3"
     divCard.appendChild(button)
   })
-}
+} 
 
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
