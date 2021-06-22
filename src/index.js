@@ -1,7 +1,21 @@
 let addToy = false;
 BASE_URL = "http://localhost:3000/toys"
 const toyCollection = document.querySelector("#toy-collection")
+const addBtn = document.querySelector("#new-toy-btn");
+const toyFormContainer = document.querySelector(".container");
+const newToyFormData = document.querySelector(".add-toy-form")
 
+document.addEventListener("DOMContentLoaded", () => {
+  addBtn.addEventListener("click", () => {
+    // hide & seek with the form
+    addToy = !addToy;
+    if (addToy) {
+      toyFormContainer.style.display = "block";
+    } else {
+      toyFormContainer.style.display = "none";
+    }
+  });
+})
 
 const fetchToys = () => {
   return fetch(BASE_URL)
@@ -9,8 +23,9 @@ const fetchToys = () => {
   .then(json => renderToys(json))
 }
 
+document.addEventListener("DOMContentLoaded", fetchToys())
+
 const renderToys = (toys) => {
-  
   toys.forEach(toy => {
     const divCard = document.createElement('div')
     divCard.classList.add("card")
@@ -35,18 +50,17 @@ const renderToys = (toys) => {
   })
 } 
 
+newToyFormData.addEventListener("submit", (e) => submitToy(e))
 
-// const createButton = document.querySelector("body > div.container > form > input.submit");
-// createButton.addEventListener("submit", submitToy())
-
-function submitToy(t) {
-  debugger
+function submitToy(event) {
+  event.preventDefault()
   let newToy = {
-    name: t.name,
-    image: image,
-    likes: likes 
-    } 
-    
+   name: event.target.name.value, // product name
+   image: event.target.image.value, // image URL
+
+  }
+  console.log(newToy)
+
   return fetch(BASE_URL, {
     method: "POST",
     headers: {
@@ -67,26 +81,6 @@ function submitToy(t) {
 
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const addBtn = document.querySelector("#new-toy-btn");
-  const toyFormContainer = document.querySelector(".container");
-  addBtn.addEventListener("click", () => {
-    // hide & seek with the form
-    addToy = !addToy;
-    if (addToy) {
-      toyFormContainer.style.display = "block";
-      toyFormContainer.addEventListener("submit", event => {
-        event.preventDefault()
-        
-        submitToy(event.target)
-      })
-    } else {
-      toyFormContainer.style.display = "none";
-    }
-  });
-});
-
-fetchToys()
 
 // When the page loads, make a 'GET' request to fetch all the toy objects. 
 // With the response data, make a <div class="card"> for each toy and 
