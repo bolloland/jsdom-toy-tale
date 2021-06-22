@@ -35,6 +35,38 @@ const renderToys = (toys) => {
   })
 } 
 
+
+// const createButton = document.querySelector("body > div.container > form > input.submit");
+// createButton.addEventListener("submit", submitToy())
+
+function submitToy(t) {
+  debugger
+  let newToy = {
+    name: t.name,
+    image: image,
+    likes: likes 
+    } 
+    
+  return fetch(BASE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Accept": "application/json",
+    },
+    body: JSON.stringify(newToy)
+  })
+  
+  .then(resp => resp.json())
+  .then(data => fetchToys(data))
+  .catch(error => {
+    alert("Warning! Danger, Will Robinson!");
+    document.body.innerHTML = error.message;
+  })
+  
+}
+
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const addBtn = document.querySelector("#new-toy-btn");
   const toyFormContainer = document.querySelector(".container");
@@ -43,6 +75,11 @@ document.addEventListener("DOMContentLoaded", () => {
     addToy = !addToy;
     if (addToy) {
       toyFormContainer.style.display = "block";
+      toyFormContainer.addEventListener("submit", event => {
+        event.preventDefault()
+        
+        submitToy(event.target)
+      })
     } else {
       toyFormContainer.style.display = "none";
     }
