@@ -46,7 +46,7 @@
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 4
     },
     {
       "name": {
@@ -73,6 +73,18 @@
     {
       "likes": 0,
       "id": 14
+    },
+    {
+      "name": "RUBIK",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg",
+      "likes": 1,
+      "id": 15
+    },
+    {
+      "name": "OP",
+      "image": "https://i5.walmartimages.com/asr/85e201bb-5a54-4f7c-917d-35ae984f8481.4c716c91c1a613f5feeabc3b703310e6.jpeg?odnWidth=undefined&odnHeight=undefined&odnBg=ffffff",
+      "likes": 2,
+      "id": 16
     }
   ]
 }

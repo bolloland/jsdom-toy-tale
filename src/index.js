@@ -4,6 +4,7 @@ const toyCollection = document.querySelector("#toy-collection")
 const addBtn = document.querySelector("#new-toy-btn");
 const toyFormContainer = document.querySelector(".container");
 const newToyFormData = document.querySelector(".add-toy-form")
+const likeButton = document.querySelector(".like-btn")
 
 document.addEventListener("DOMContentLoaded", () => {
   addBtn.addEventListener("click", () => {
@@ -16,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 })
-
+//get data from API
 const fetchToys = () => {
   return fetch(BASE_URL)
   .then(resp => resp.json())
@@ -46,6 +47,7 @@ const renderToys = (toys) => {
     let button = document.createElement('button')
     button.classList.add("like-btn")
     button.innerHTML = "Like <3"
+    button.addEventListener("click", () => addLikes(toy))
     divCard.appendChild(button)
   })
 } 
@@ -54,11 +56,11 @@ newToyFormData.addEventListener("submit", (e) => submitToy(e))
 
 function submitToy(event) {
   event.preventDefault()
-  let newToy = {
-   name: event.target.name.value, // product name
-   image: event.target.image.value, // image URL
-
-  }
+    let newToy = {
+    name: event.target.name.value, // product name
+    image: event.target.image.value,
+    likes: 0 // image URL
+    }
   console.log(newToy)
 
   return fetch(BASE_URL, {
@@ -71,18 +73,24 @@ function submitToy(event) {
   })
   
   .then(resp => resp.json())
-  .then(data => fetchToys(data))
+  .then(data => fetchToys())
   .catch(error => {
     alert("Warning! Danger, Will Robinson!");
     document.body.innerHTML = error.message;
   })
-  
 }
 
-
-
-
-// When the page loads, make a 'GET' request to fetch all the toy objects. 
-// With the response data, make a <div class="card"> for each toy and 
-// add it to the toy-collection div.
-
+function addLikes(toy) {
+  toy.likes ++
+  // debugger
+  fetch(`${BASE_URL}/${toy.id}`, {
+    method: "PATCH",
+    headers : {
+      'Content-Type': 'application/json',
+      'Accepts': 'application/json'
+    },
+    body: JSON.stringify(toy)
+  })
+  .then(resp => resp.json())
+  .then(() => fetchToys())
+}
