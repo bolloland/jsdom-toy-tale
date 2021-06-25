@@ -27,7 +27,12 @@ const fetchToys = () => {
 document.addEventListener("DOMContentLoaded", fetchToys())
 
 const renderToys = (toys) => {
-  toys.forEach(toy => {
+  console.log(toys)
+  toys.forEach(toy => renderOneToy(toy)
+  )}  
+
+
+function renderOneToy(toy) {
     const divCard = document.createElement('div')
     divCard.classList.add("card")
     let h2 = document.createElement('h2')
@@ -41,7 +46,7 @@ const renderToys = (toys) => {
 
     let toyLikes = toy.likes
     let pp = document.createElement('p')
-    pp.id = "toy-likes-number" // give an id to find later (line 85)
+    pp.id = toy.id // give an id to find later (line 85)
     pp.append(toyLikes)
     divCard.appendChild(pp)
 
@@ -50,8 +55,7 @@ const renderToys = (toys) => {
     button.innerHTML = "Like <3"
     button.addEventListener("click", (e) => addLikes(e, toy))
     divCard.appendChild(button)
-  })
-} 
+}
 
 newToyFormData.addEventListener("submit", (e) => submitToy(e))
 
@@ -62,7 +66,6 @@ function submitToy(event) {
     image: event.target.image.value,
     likes: 0 // image URL
     }
-  console.log(newToy)
 
   return fetch(BASE_URL, {
     method: "POST",
@@ -74,7 +77,7 @@ function submitToy(event) {
   })
   
   .then(resp => resp.json())
-  .then(data => fetchToys())
+  .then(data => renderOneToy(data))
   .catch(error => {
     alert("Warning! Danger, Will Robinson!");
     document.body.innerHTML = error.message;
@@ -82,9 +85,9 @@ function submitToy(event) {
 }
 
 function addLikes(event, toy) {
-  const likeElement = document.getElementById("toy-likes-number")
+  const likeElement = document.getElementById(toy.id)
   ++toy.likes //returns toy.likes AFTER increment
-  // debugger
+  
   fetch(`${BASE_URL}/${toy.id}`, {
     method: "PATCH",
     headers : {
