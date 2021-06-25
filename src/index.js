@@ -41,13 +41,14 @@ const renderToys = (toys) => {
 
     let toyLikes = toy.likes
     let pp = document.createElement('p')
+    pp.id = "toy-likes-number" // give an id to find later (line 85)
     pp.append(toyLikes)
     divCard.appendChild(pp)
 
     let button = document.createElement('button')
     button.classList.add("like-btn")
     button.innerHTML = "Like <3"
-    button.addEventListener("click", () => addLikes(toy))
+    button.addEventListener("click", (e) => addLikes(e, toy))
     divCard.appendChild(button)
   })
 } 
@@ -80,8 +81,9 @@ function submitToy(event) {
   })
 }
 
-function addLikes(toy) {
-  toy.likes ++
+function addLikes(event, toy) {
+  const likeElement = document.getElementById("toy-likes-number")
+  ++toy.likes //returns toy.likes AFTER increment
   // debugger
   fetch(`${BASE_URL}/${toy.id}`, {
     method: "PATCH",
@@ -89,8 +91,11 @@ function addLikes(toy) {
       'Content-Type': 'application/json',
       'Accepts': 'application/json'
     },
-    body: JSON.stringify(toy)
+    body: JSON.stringify({"likes": toy.likes}) 
+    // we only want to change this specific column
   })
+  
   .then(resp => resp.json())
-  .then(() => fetchToys())
-}
+  .then((data) => 
+  {likeElement.innerText = data.likes}
+  )}
