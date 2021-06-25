@@ -74,7 +74,7 @@ function submitToy(event) {
   })
   
   .then(resp => resp.json())
-  .then((toys) => renderToys(toys))
+  .then(data => fetchToys())
   .catch(error => {
     alert("Warning! Danger, Will Robinson!");
     document.body.innerHTML = error.message;
