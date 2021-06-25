@@ -74,7 +74,7 @@ function submitToy(event) {
   })
   
   .then(resp => resp.json())
-  .then(data => fetchToys())
+  .then((toys) => renderToys(toys))
   .catch(error => {
     alert("Warning! Danger, Will Robinson!");
     document.body.innerHTML = error.message;
@@ -91,11 +91,14 @@ function addLikes(event, toy) {
       'Content-Type': 'application/json',
       'Accepts': 'application/json'
     },
-    body: JSON.stringify({"likes": toy.likes}) 
+    body: JSON.stringify({
+      "likes": toy.likes
+    }) 
     // we only want to change this specific column
   })
   
   .then(resp => resp.json())
-  .then((data) => 
-  {likeElement.innerText = data.likes}
-  )}
+  .then((data) => {
+    likeElement.innerHTML = data.likes
+  })
+}
