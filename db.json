@@ -10,13 +10,13 @@
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 14
+      "likes": 15
     },
     {
       "id": 3,
       "name": "Mr. Potato Head",
       "image": "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217",
-      "likes": 3
+      "likes": 4
     },
     {
       "id": 4,
@@ -28,25 +28,73 @@
       "id": 5,
       "name": "Rex",
       "image": "http://umich.edu/~chemh215/W11HTML/SSG5/ssg5.2/FRex.png",
-      "likes": 1
+      "likes": 7
     },
     {
       "id": 6,
       "name": "Bo Peep",
       "image": "http://4.bp.blogspot.com/_OZHbJ8c71OM/Sog43CMFX2I/AAAAAAAADEs/0AKX0XslD4g/s400/bo.png",
-      "likes": 2
+      "likes": 6
     },
     {
       "id": 7,
       "name": "Hamm",
       "image": "https://cdn140.picsart.com/244090226021212.png?r1024x1024",
-      "likes": 0
+      "likes": 4
     },
     {
       "id": 8,
       "name": "Little Green Men",
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
-      "likes": -2
+      "likes": 5
+    },
+    {
+      "name": "Optimus Prime",
+      "image": "https://cdn.vox-cdn.com/thumbor/terew6bre8NxATsm-qsbZO8eDF0=/0x0:1698x1700/1200x0/filters:focal(0x0:1698x1700):no_upscale()/cdn.vox-cdn.com/uploads/chorus_asset/file/22433527/Screen_Shot_2021_04_09_at_5.15.34_PM.png",
+      "likes": 2,
+      "id": 9
+    },
+    {
+      "name": "Stretch Armstrong",
+      "image": "https://www.character-online.com/content/images/thumbs/0004186_mini-stretch-armstrong.jpeg",
+      "likes": 0,
+      "id": 10
+    },
+    {
+      "name": "TNMT",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8359efd9-fa97-4919-8f02-3712e70a0eeb/ddirf6p-cf932f98-4fd8-4a79-a3cc-a6cac93ba57a.jpg/v1/fill/w_1024,h_768,q_75,strp/tmnt__earth_27__by_phil_cho_ddirf6p-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD03NjgiLCJwYXRoIjoiXC9mXC84MzU5ZWZkOS1mYTk3LTQ5MTktOGYwMi0zNzEyZTcwYTBlZWJcL2RkaXJmNnAtY2Y5MzJmOTgtNGZkOC00YTc5LWEzY2MtYTZjYWM5M2JhNTdhLmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.fWbYAmzn4WdChl8ecAGfIL6BMooLV-tiOU50qzBCR7w",
+      "likes": 0,
+      "id": 11
+    },
+    {
+      "name": "Rubik's Cube",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg",
+      "likes": 0,
+      "id": 12
+    },
+    {
+      "name": "cube 2",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg",
+      "likes": 0,
+      "id": 13
+    },
+    {
+      "name": "cube 3",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg",
+      "likes": 2,
+      "id": 14
+    },
+    {
+      "name": "cube 4",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg",
+      "likes": 6,
+      "id": 15
+    },
+    {
+      "name": "cube 5",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/Rubiks_cube_solved.jpg",
+      "likes": 5,
+      "id": 16
     }
   ]
 }
